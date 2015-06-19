@@ -31,10 +31,10 @@ use stable unless you have a very good reason.
 For more information on the how to use Dynamips see the README file
 
 %prep
-%setup -n %{name}-%{version}
-%cmake .
+%setup -q
 
 %build
+%cmake .
 make %{?_smp_mflags}
 
 %install
