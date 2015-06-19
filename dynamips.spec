@@ -32,7 +32,7 @@ For more information on the how to use Dynamips see the README file
 
 %prep
 %setup -n %{name}-%{version}
-%cmake -DCMAKE_INSTALL_PREFIX=/usr .
+%cmake .
 
 %build
 make %{?_smp_mflags}
