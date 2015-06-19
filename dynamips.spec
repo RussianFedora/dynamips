@@ -1,14 +1,14 @@
 Summary: Cisco router simulator
 Name: dynamips
 Version: 0.2.15
-Release: 1%{?dist}
-License: GPLv2
+Release: 2%{?dist}
+License: GPLv2+
 Group: Applications/Emulators
 URL: https://github.com/GNS3/%{name}
 
-Source: https://github.com/GNS3/%{name}/archive/v%{version}.tar.gz
+Source: https://github.com/GNS3/%{name}/archive/v%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires: cmake make
+BuildRequires: cmake
 BuildRequires: glibc-devel
 BuildRequires: libpcap-devel
 BuildRequires: elfutils-libelf-devel
@@ -32,29 +32,32 @@ For more information on the how to use Dynamips see the README file
 
 %prep
 %setup -q
+rm -rf build && mkdir build
 
 %build
-%cmake .
-make %{?_smp_mflags}
+pushd build
+  %cmake ../
+  %make_build
+popd
 
 %install
-rm -rf %{buildroot}
-%make_install
+pushd build
+  %make_install
+popd
+rm -rf %{buildroot}%{_datadir}/doc/%{name}/
 
 %files
+%license COPYING
+%doc README.md README.hypervisor
 %{_bindir}/dynamips
 %{_bindir}/nvram_export
-%doc %{_mandir}/man1/dynamips.1*
-%doc %{_mandir}/man1/nvram_export.1*
-%doc %{_mandir}/man7/hypervisor_mode.7*
-%doc /usr/share/doc/dynamips/ChangeLog
-%doc /usr/share/doc/dynamips/COPYING
-%doc /usr/share/doc/dynamips/MAINTAINERS
-%doc /usr/share/doc/dynamips/README
-%doc /usr/share/doc/dynamips/README.hypervisor
-%doc /usr/share/doc/dynamips/RELEASE-NOTES
-%doc /usr/share/doc/dynamips/TODO
+%{_mandir}/man1/dynamips.1.*
+%{_mandir}/man1/nvram_export.1.*
+%{_mandir}/man7/hypervisor_mode.7.*
 
 %changelog
+* Wed May  27 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.2.15-2
+- Fix shit in rpm spec
+
 * Wed May  27 2015 Dmitriy Slachshyov <dmnord@mital.kz> - 0.2.15-1
 - Initial package.
