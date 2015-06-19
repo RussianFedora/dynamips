@@ -42,7 +42,6 @@ rm -rf %{buildroot}
 %make_install
 
 %files
-%defattr(-, root, root, 0755)
 %{_bindir}/dynamips
 %{_bindir}/nvram_export
 %doc %{_mandir}/man1/dynamips.1*
