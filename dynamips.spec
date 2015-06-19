@@ -57,7 +57,7 @@ rm -rf %{buildroot}%{_datadir}/doc/%{name}/
 
 %changelog
 * Wed May  27 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.2.15-2
-- Fix shit in rpm spec
+- Clean spec
 
 * Wed May  27 2015 Dmitriy Slachshyov <dmnord@mital.kz> - 0.2.15-1
 - Initial package.
