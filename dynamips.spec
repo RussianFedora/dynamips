@@ -1,18 +1,12 @@
-# $Id$
-# Authority: dries
-
 Summary: Cisco router simulator
 Name: dynamips
 Version: 0.2.14
 Release: 1%{?dist}
 License: GPLv2
 Group: Applications/Emulators
-URL: http://sourceforge.net/projects/gns-3/files/Dynamips/%{version}/
+URL: https://github.com/GNS3/dynamips
 
-Packager: Dmitriy Slachshyov <slashvdm@mital.kz>
-Vendor: Custom Repository
-
-Source: dynamips-%{version}.tar.gz
+Source: https://github.com/GNS3/dynamips/archive/v%{version}.tar.gz
 
 BuildRequires: cmake make
 BuildRequires: glibc-devel
@@ -21,9 +15,6 @@ BuildRequires: elfutils-libelf-devel
 BuildRequires: libuuid-devel
 
 %description
-Authors of this document: Fabien Devaux, Christophe Fillot, MtvE, Gordon Russell, Jeremy
-Grossmann and Flávio J. Saraiva.
-Converted to markdown format by Daniel Lintott.
 This is a continuation of Dynamips, based on the last development version and improved
 with patches wrote by various people from the community. This fork was named
 Dynamips-community up to the 0.2.8-community release and renamed to the original Dynamips
@@ -40,18 +31,15 @@ use stable unless you have a very good reason.
 For more information on the how to use Dynamips see the README file
 
 %prep
-%setup
-%{__cmake} -DCMAKE_INSTALL_PREFIX=/usr .
+%setup -n %{name}-%{version}
+%cmake -DCMAKE_INSTALL_PREFIX=/usr .
 
 %build
-%{__make}
+make %{?_smp_mflags}
 
 %install
-%{__rm} -rf %{buildroot}
-%{__make} install DESTDIR="%{buildroot}"
-
-%clean
-%{__make} clean
+rm -rf %{buildroot}
+%make_install
 
 %files
 %defattr(-, root, root, 0755)
@@ -69,5 +57,5 @@ For more information on the how to use Dynamips see the README file
 %doc /usr/share/doc/dynamips/TODO
 
 %changelog
-* Wed May  27 2015 Dmitriy Slachshyov <slashvdm@mital.kz> - 0.2.14-1
+* Wed May  27 2015 Dmitriy Slachshyov <dmnord@mital.kz> - 0.2.14-1
 - Initial package.
