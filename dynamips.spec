@@ -1,12 +1,12 @@
 Summary: Cisco router simulator
 Name: dynamips
-Version: 0.2.14
+Version: 0.2.15
 Release: 1%{?dist}
 License: GPLv2
 Group: Applications/Emulators
-URL: https://github.com/GNS3/dynamips
+URL: https://github.com/GNS3/%{name}
 
-Source: https://github.com/GNS3/dynamips/archive/v%{version}.tar.gz
+Source: https://github.com/GNS3/%{name}/archive/v%{version}.tar.gz
 
 BuildRequires: cmake make
 BuildRequires: glibc-devel
@@ -56,5 +56,5 @@ rm -rf %{buildroot}
 %doc /usr/share/doc/dynamips/TODO
 
 %changelog
-* Wed May  27 2015 Dmitriy Slachshyov <dmnord@mital.kz> - 0.2.14-1
+* Wed May  27 2015 Dmitriy Slachshyov <dmnord@mital.kz> - 0.2.15-1
 - Initial package.
