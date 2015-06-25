@@ -37,7 +37,7 @@ rm -rf build && mkdir build
 %build
 pushd build
   %cmake ../
-  %make_build
+  make %{?_smp_mflags}
 popd
 
 %install
