@@ -55,7 +55,10 @@ rm -rf %{buildroot}%{_datadir}/doc/%{name}/
 %{_mandir}/man7/hypervisor_mode.7.*
 
 %changelog
-* Tue Apr  26 2016 Dmitriy Slachshyov <dmnord@mital.kz> - 0.2.16-2
+* Tue Apr 26 2016 Dmitriy Slachshyov <dmnord@mital.kz> - 0.2.16-2
+- Remove BR: libuuid-devel
+
+* Tue Apr  26 2016 Dmitriy Slachshyov <dmnord@mital.kz> - 0.2.16-1
 - Update to version 0.2.16.
 
 * Wed May  27 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.2.15-2
