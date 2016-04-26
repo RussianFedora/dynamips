@@ -1,7 +1,7 @@
 Summary: Cisco router simulator
 Name: dynamips
 Version: 0.2.16
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: GPLv2+
 Group: Applications/Emulators
 URL: https://github.com/GNS3/%{name}
@@ -57,9 +57,7 @@ rm -rf %{buildroot}%{_datadir}/doc/%{name}/
 
 %changelog
 * Tue Apr  26 2016 Dmitriy Slachshyov <dmnord@mital.kz> - 0.2.16-1
-- Remove libuuid dependency and NIO Multicast implementation that depends on it.
-  NIO Multicast is never used and maybe not even functional.
-  EthernetSwitch: Allow to choose ethertype for QinQ outer tag.
+- New version was released.
 
 * Wed May  27 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.2.15-2
 - Clean spec
