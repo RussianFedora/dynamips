@@ -1,7 +1,7 @@
 Summary: Cisco router simulator
 Name: dynamips
 Version: 0.2.16
-Release: 2%{?dist}
+Release: 1%{?dist}
 License: GPLv2+
 Group: Applications/Emulators
 URL: https://github.com/GNS3/%{name}
@@ -57,7 +57,7 @@ rm -rf %{buildroot}%{_datadir}/doc/%{name}/
 
 %changelog
 * Tue Apr  26 2016 Dmitriy Slachshyov <dmnord@mital.kz> - 0.2.16-1
-- New version was released.
+- Update to version 0.2.16.
 
 * Wed May  27 2015 Igor Gnatenko <i.gnatenko.brain@gmail.com> - 0.2.15-2
 - Clean spec
