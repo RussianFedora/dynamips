@@ -12,7 +12,6 @@ BuildRequires: cmake
 BuildRequires: glibc-devel
 BuildRequires: libpcap-devel
 BuildRequires: elfutils-libelf-devel
-BuildRequires: libuuid-devel
 
 %description
 This is a continuation of Dynamips, based on the last development version and
